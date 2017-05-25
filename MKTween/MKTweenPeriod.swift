@@ -8,6 +8,7 @@
 
 open class MKTweenPeriod {
 	
+    open var loops: Int
 	open let duration: TimeInterval
 	open let delay: TimeInterval
 	internal(set) open var startValue: Double
@@ -17,11 +18,16 @@ open class MKTweenPeriod {
 	internal var startTimeStamp: TimeInterval?
 	internal var updatedTimeStamp: TimeInterval?
 	
-	public init(duration: TimeInterval, delay: TimeInterval = 0, startValue: Double = 0, endValue: Double = 1) {
+    public init(duration: TimeInterval, delay: TimeInterval = 0, loops: Int = 0, startValue: Double = 0, endValue: Double = 1) {
 		
 		self.duration = duration
 		self.delay = delay
 		self.startValue = startValue
 		self.endValue = endValue
+        self.loops = loops
 	}
+    
+    public func Reset() {
+        
+    }
 }

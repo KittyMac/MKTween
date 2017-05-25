@@ -151,9 +151,20 @@ open class MKTween: NSObject {
                         
                     } else {
                         
-                        period.progress = period.endValue
-                        expiredTweenOperations.append(operation)
-                        removeTweenOperation(operation)
+                        period.loops -= 1
+                        
+                        // this tween is finished
+                        if period.loops == 0 {
+                            period.progress = period.endValue
+                            expiredTweenOperations.append(operation)
+                            removeTweenOperation(operation)
+                        } else {
+                            
+                            period.startTimeStamp = timeStamp
+                            period.updatedTimeStamp = timeStamp
+                            
+                            period.progress = operation.timingFunction(timeStamp - startTimeStamp - period.delay, period.startValue, period.endValue - period.startValue, period.duration)
+                        }
                     }
                     
                     period.updatedTimeStamp = timeStamp
