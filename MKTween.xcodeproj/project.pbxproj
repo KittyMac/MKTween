@@ -254,7 +254,6 @@
 		491C31CC1C56D66100910389 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Frameworks";
 				DEFINES_MODULE = YES;
@@ -275,7 +274,6 @@
 		491C31CD1C56D66100910389 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Frameworks";
 				DEFINES_MODULE = YES;
