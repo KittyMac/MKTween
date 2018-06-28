@@ -224,7 +224,7 @@ open class MKTween: NSObject {
         handleTick(CACurrentMediaTime())
     }
     
-    fileprivate func handleTick(_ timeStamp: TimeInterval) {
+    open func handleTick(_ timeStamp: TimeInterval) {
         
         if busy {
             
