@@ -9,8 +9,8 @@
 open class MKTweenPeriod {
 	
     open var loops: Int
-	open let duration: TimeInterval
-	open let delay: TimeInterval
+	open var duration: TimeInterval
+	open var delay: TimeInterval
 	internal(set) open var startValue: Double
 	internal(set) open var endValue: Double
 	internal(set) open var progress: Double = 0

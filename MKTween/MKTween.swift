@@ -93,13 +93,11 @@ open class MKTween: NSObject {
     }
     
     open func addTweenOperation(_ operation: MKTweenOperation) {
-        
-        if operation.period.duration > 0 {
-            
-            tweenOperations.append(operation)
-            
-            start()
+        if operation.period.duration <= 0 {
+            operation.period.duration = 0.0000001
         }
+        tweenOperations.append(operation)
+        start()
     }
     
     open func removeTweenOperation(_ operation: MKTweenOperation) {
@@ -168,20 +166,20 @@ open class MKTween: NSObject {
                     }
                     
                     period.updatedTimeStamp = timeStamp
+                }
+                
+                if let updateBlock = operation.updateBlock {
                     
-                    if let updateBlock = operation.updateBlock {
+                    if let dispatchQueue = operation.dispatchQueue {
                         
-                        if let dispatchQueue = operation.dispatchQueue {
-                            
-                            dispatchQueue.async(execute: { () -> Void in
-                                
-                                updateBlock(period)
-                            })
-                            
-                        } else {
+                        dispatchQueue.async(execute: { () -> Void in
                             
                             updateBlock(period)
-                        }
+                        })
+                        
+                    } else {
+                        
+                        updateBlock(period)
                     }
                 }
                 
