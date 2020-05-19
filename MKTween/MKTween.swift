@@ -74,7 +74,7 @@ open class MKTween: NSObject {
         stop()
     }
     
-    open static let shared = MKTween(.default)
+    public static let shared = MKTween(.default)
     
     open class func shared(_ timerStyle: MKTweenTimerStyle = .default, frameInterval: Int? = nil, timerInterval: TimeInterval? = nil) -> MKTween {
         
@@ -247,7 +247,7 @@ open class MKTween: NSObject {
             
             displayLink = UIScreen.main.displayLink(withTarget: self, selector: #selector(MKTween.handleDisplayLink(_:)))
             displayLink!.frameInterval = frameInterval
-            displayLink!.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+            displayLink!.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
             
         } else if timer == nil && timerStyle == .timer {
             
@@ -261,7 +261,7 @@ open class MKTween: NSObject {
         if displayLink != nil {
             
             displayLink!.isPaused = true
-            displayLink!.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes)
+            displayLink!.remove(from: RunLoop.main, forMode: RunLoop.Mode.common)
             displayLink = nil
         }
         

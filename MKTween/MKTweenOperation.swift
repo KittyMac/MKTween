@@ -12,7 +12,7 @@ public typealias MKTweenCompleteBlock = () -> ()
 open class MKTweenOperation: Equatable {
 	
 	internal(set) open var period: MKTweenPeriod
-	open let timingFunction: MKTweenTimingFunction
+	public let timingFunction: MKTweenTimingFunction
 	let updateBlock: MKTweenUpdateBlock?
 	let completeBlock: MKTweenCompleteBlock?
 
